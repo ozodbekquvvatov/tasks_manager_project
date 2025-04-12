@@ -26,7 +26,7 @@ class TaskStoreRequest extends FormRequest
             'priority' => 'required|in:low,medium,high', // Valid priority values
             'status' => 'required|in:not-started,in-progress,completed',
             'due_date' => 'required|date|before_or_equal:today', // Date must be today or after
-            'status' => 'required|string|in:not-started,in-progress,completed',
+            // 'status' => 'required|string|in:not-started,in-progress,completed',  # hali bitmgaan 
             'description' => 'nullable|string',
             'image' => 'nullable|file|mimes:png,jpg,gif|max:10240', // 10MB max for imagee ixtiyoriy bo‘lisho‘lishi mumkin, faqat rasm formatlarida va maksimal 2MB
         ];
