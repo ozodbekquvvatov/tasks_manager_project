@@ -20,7 +20,7 @@ class AuthMiddleware
         
 
         if (!Auth::check()) {
-            return redirect()->route('users.index'); 
+            return redirect()->route('users.create'); // Foydalanuvchini ro'yxatdan o'tish sahifasiga yo'naltirish
         }
 
         
