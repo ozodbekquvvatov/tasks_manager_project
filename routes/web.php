@@ -15,14 +15,12 @@ Route::get('logout',[AuthController::class,'logout'])->name('logout');
 Route::middleware(['guest'])->group(function () {
     Route::post('login', [AuthController::class, 'loginStore'])->name('login.store');
     Route::get('login', [AuthController::class, 'login'])->name('login');
-    
-    
+    Route::resource('users', AuthController::class)->names('users');   
     
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [AuthController::class, 'index'])->name('dashboard');
     Route::resource('tasks', TaskController::class)->names('tasks');
-    Route::resource('users', AuthController::class)->names('users');
+    Route::get('/dashboard', [AuthController::class, 'index'])->name('dashboard');
   
 });
