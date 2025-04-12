@@ -24,6 +24,7 @@
                     <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
                 @enderror
             </div>
+         
             
             <div class="flex items-center justify-between mb-6">
                 <div class="flex items-center">
