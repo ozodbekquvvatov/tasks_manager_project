@@ -22,11 +22,13 @@ class TaskStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'task_name' => 'required|string|max:255',  // task_name kerakli va maksimal 255 belgidan iborat
-            'priority' => 'required|integer|in:1,2,3', // priority 1, 2 yoki 3 bo'lishi kerak
-            'due_date' => 'required|date|after_or_equal:today', // due_date hozirgi kundan keyingi sana bo'lishi kerak
-            'description' => 'nullable|string|max:500', // description ixtiyoriy, lekin maksimal 500 belgidan iborat bo'lishi kerak
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // image ixtiyoriy bo‘lishi mumkin, faqat rasm formatlarida va maksimal 2MB
+            'task_name' => 'required|string|max:255',
+            'priority' => 'required|in:low,medium,high', // Valid priority values
+            'status' => 'required|in:not-started,in-progress,completed',
+            'due_date' => 'required|date|before_or_equal:today', // Date must be today or after
+            'status' => 'required|string|in:not-started,in-progress,completed',
+            'description' => 'nullable|string',
+            'image' => 'nullable|file|mimes:png,jpg,gif|max:10240', // 10MB max for imagee ixtiyoriy bo‘lisho‘lishi mumkin, faqat rasm formatlarida va maksimal 2MB
         ];
     }
 }
