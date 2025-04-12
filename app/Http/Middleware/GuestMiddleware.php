@@ -18,7 +18,7 @@ class GuestMiddleware
     {
         
         if (Auth::check()) {
-            return redirect()->route('tasks.index'); 
+            return redirect()->route('dashboard'); 
         }
 
         
