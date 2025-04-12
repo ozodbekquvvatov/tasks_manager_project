@@ -65,16 +65,15 @@ class TaskController extends Controller
     // Taskni yaratish va ma'lumotlarni saqlash
     Task::create([
         'task_name' => $request->task_name,
-        'priority' => $request->priority,
+        'priority' => $request->priority,  // Priority ma'lumotini saqlash
         'due_date' => $request->due_date,
         'description' => $request->description ?? null,
         'image' => $filePath,  // Fayl yo'lini saqlash
     ]);
 
     // Muvaffaqiyatli qo'shildi deb xabar berish
-    return redirect()->route('tasks.index')->with('success', 'Task created successfully!');
+    return redirect()->route('tasks.index');
 }
-
 
 
     /**
