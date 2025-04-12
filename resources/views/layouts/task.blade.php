@@ -14,15 +14,15 @@
             <div class="flex items-center">
                 <h1 class="text-xl font-bold text-gray-800">Task Manager</h1>
                 <nav class="hidden md:ml-6 md:flex space-x-4">
-                    <a href="dashboard.html" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
-                    <a href="tasks.html" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Tasks</a>
+                    <a href="{{route('dashboard')}}" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+                    <a href="{{route('tasks.index')}}" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Tasks</a>
                 </nav>
             </div>
             <div class="flex items-center">
                 <div class="relative">
                     <button id="user-menu-button" class="flex items-center space-x-2 focus:outline-none">
-                        <img class="h-8 w-8 rounded-full" src="https://ui-avatars.com/api/?name=John+Doe&background=0D8ABC&color=fff" alt="User avatar">
-                        <span class="text-gray-700 text-sm font-medium hidden md:block">John Doe</span>
+                        <img class="h-8 w-8 rounded-full" src="https://ui-avatars.com/api/?name={{ Auth::user()->first_name }}+{{ Auth::user()->last_name }}&background=0D8ABC&color=fff" alt="User avatar">
+                        <span class="text-gray-700 text-sm font-medium hidden md:block">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span>
                         <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
@@ -31,10 +31,11 @@
                     <div id="user-menu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
                         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Your Profile</a>
                         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
-                        <a href="login.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
+                        <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
                     </div>
                 </div>
             </div>
+            
         </div>
     </header>
 
